@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Tab — FI Countdown</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+  <header class="brand">FI&nbsp;COUNTDOWN</header>
+
+  <main class="hero">
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 200 200" role="img" aria-label="Progress toward financial independence">
+        <circle class="ring-bg" cx="100" cy="100" r="84"></circle>
+        <circle class="ring-fg" id="ringFg" cx="100" cy="100" r="84"></circle>
+      </svg>
+      <div class="ring-center">
+        <div class="big-number" id="yearsBig">–</div>
+        <div class="big-label" id="yearsLabel">years to FI</div>
+      </div>
+    </div>
+    <div class="progress-line"><span id="progressPct">0%</span> of your FI target reached</div>
+    <p class="insight" id="insight"></p>
+  </main>
+
+  <section class="stats">
+    <div class="stat"><span class="stat-label">FI target</span><span class="stat-value" id="statTarget">–</span></div>
+    <div class="stat"><span class="stat-label">Invested assets</span><span class="stat-value" id="statAssets">–</span></div>
+    <div class="stat"><span class="stat-label">Monthly savings</span><span class="stat-value" id="statSaving">–</span></div>
+  </section>
+
+  <section class="pro-row">
+    <button class="pro-card" id="proScenarios" type="button">
+      <span class="pro-badge">Pro · Coming soon</span>
+      <span class="pro-title">Compare scenarios</span>
+      <span class="pro-desc">Side-by-side what-ifs</span>
+    </button>
+    <button class="pro-card" id="proExport" type="button">
+      <span class="pro-badge">Pro · Coming soon</span>
+      <span class="pro-title">Export PDF report</span>
+      <span class="pro-desc">Share your plan</span>
+    </button>
+  </section>
+
+  <details class="settings">
+    <summary>Settings</summary>
+    <form id="settingsForm">
+      <label>Invested assets (USD)<input type="number" id="inAssets" min="0" step="1000" required></label>
+      <label>Annual spending (USD)<input type="number" id="inSpending" min="1" step="1000" required></label>
+      <label>Expected real return (% / yr)<input type="number" id="inReturn" min="0" max="20" step="0.1" required></label>
+      <label>Monthly savings (USD)<input type="number" id="inSaving" min="0" step="100" required></label>
+      <button type="submit">Save</button>
+    </form>
+    <p class="fineprint">Math: FI target = annual spending × 25 (the 4% rule). Years assume a constant real return, compounded yearly. Estimates only — not financial advice.</p>
+  </details>
+
+  <div class="rate-nudge" id="rateNudge" hidden>
+    <span>Enjoying FI Countdown?</span>
+    <a id="rateLink" href="#" target="_blank" rel="noopener">★★★★★ Rate us</a>
+    <button id="rateDismiss" type="button" aria-label="Dismiss">✕</button>
+  </div>
+
+  <div class="subscribe" id="subscribeBox">
+    <span class="sub-title">Get notified when Pro launches</span>
+    <form id="subscribeForm">
+      <input type="email" id="subEmail" placeholder="you@email.com" required>
+      <button type="submit">Notify me</button>
+    </form>
+    <p class="sub-note" id="subNote" hidden></p>
+  </div>
+
+  <footer>Your numbers never leave this browser. <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy policy</a></footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+<script src="newtab.js"></script>
+</body>
+</html>
